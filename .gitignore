@@ -1,0 +1,40 @@
+# Environment variables
+.env
+.env.local
+.env.*
+
+# Conda environment
+.conda/
+
+# IDE
+.vscode/
+.idea/
+
+# Claude Code
+.claude/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+eggs/
+*.egg
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Pricing analysis (internal only)
+azure_openai_pricing_analysis.ipynb
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
