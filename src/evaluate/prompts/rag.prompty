@@ -1,0 +1,23 @@
+---
+name: RAG Evaluation
+description: >
+  System prompt for RAG (Retrieval-Augmented Generation) evaluation.
+  Tests whether the model answers based only on provided context
+  and avoids hallucination.
+model:
+  api: chat
+  parameters:
+    temperature: 0.0
+    max_tokens: 1024
+inputs:
+  context:
+    type: string
+    description: Document context to ground the answer
+  question:
+    type: string
+    description: User question about the context
+---
+system:
+You are a helpful assistant that answers questions based ONLY on the provided context.
+If the information is not in the context, say "I don't have enough information to answer this question."
+Do not make up or infer information that is not explicitly stated in the context.

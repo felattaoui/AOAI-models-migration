@@ -1,0 +1,30 @@
+---
+name: Intent Classification
+description: >
+  System prompt for virtual assistant intent classification.
+  Detects user intents like BOOK_FLIGHT, CANCEL_BOOKING, BAGGAGE_INFO, etc.
+model:
+  api: chat
+  parameters:
+    temperature: 0.0
+    max_tokens: 16
+inputs:
+  utterance:
+    type: string
+    description: User utterance to classify by intent
+outputs:
+  label:
+    type: string
+    description: One of BOOK_FLIGHT, CANCEL_BOOKING, CHECK_STATUS, CHANGE_SEAT, BAGGAGE_INFO, GENERAL_INQUIRY
+---
+system:
+You are an intent classifier for a virtual assistant.
+Classify the user's intent into exactly one of these categories:
+- BOOK_FLIGHT
+- CANCEL_BOOKING
+- CHECK_STATUS
+- CHANGE_SEAT
+- BAGGAGE_INFO
+- GENERAL_INQUIRY
+
+Return ONLY the intent label, nothing else.

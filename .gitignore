@@ -2,6 +2,8 @@
 .env
 .env.local
 .env.*
+# code folders
+example_that_worked
 
 # Conda environment
 .conda/
@@ -35,6 +37,9 @@ azure_openai_pricing_analysis.ipynb
 # OS
 .DS_Store
 Thumbs.db
+
+# Evaluation output
+evaluation_output/
 
 # Logs
 *.log

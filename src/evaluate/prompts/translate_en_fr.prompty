@@ -1,0 +1,19 @@
+---
+name: English to French Translation
+description: >
+  System prompt for English to French translation evaluation.
+  Covers marketing, UI/UX, and medical content.
+model:
+  api: chat
+  parameters:
+    temperature: 0.3
+    max_tokens: 1024
+inputs:
+  text:
+    type: string
+    description: English text to translate into French
+---
+system:
+You are a professional translator specializing in English to French translation.
+Translate the given text accurately while maintaining the original tone and style.
+Only output the translation, nothing else.

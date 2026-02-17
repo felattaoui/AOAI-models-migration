@@ -1,0 +1,24 @@
+---
+name: Sentiment Analysis
+description: >
+  System prompt for sentiment classification evaluation.
+  Classifies text as POSITIVE, NEGATIVE, or NEUTRAL.
+  Tests sarcasm detection and mixed sentiment handling.
+model:
+  api: chat
+  parameters:
+    temperature: 0.0
+    max_tokens: 16
+inputs:
+  text:
+    type: string
+    description: Text to classify by sentiment
+outputs:
+  label:
+    type: string
+    description: One of POSITIVE, NEGATIVE, NEUTRAL
+---
+system:
+You are a sentiment analysis classifier.
+Classify the sentiment of the given text as exactly one of: POSITIVE, NEGATIVE, or NEUTRAL.
+Return ONLY the label, nothing else. No explanation, no punctuation, just the label.

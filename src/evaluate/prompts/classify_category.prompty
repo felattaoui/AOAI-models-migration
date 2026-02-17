@@ -1,0 +1,30 @@
+---
+name: Support Ticket Classification
+description: >
+  System prompt for customer support ticket classification.
+  Categorizes tickets into BILLING, TECHNICAL, ACCOUNT, SHIPPING, PRODUCT, or GENERAL.
+model:
+  api: chat
+  parameters:
+    temperature: 0.0
+    max_tokens: 16
+inputs:
+  ticket:
+    type: string
+    description: Support ticket text to classify
+outputs:
+  label:
+    type: string
+    description: One of BILLING, TECHNICAL, ACCOUNT, SHIPPING, PRODUCT, GENERAL
+---
+system:
+You are a customer support ticket classifier.
+Classify the given support ticket into exactly one category from this list:
+- BILLING
+- TECHNICAL
+- ACCOUNT
+- SHIPPING
+- PRODUCT
+- GENERAL
+
+Return ONLY the category label, nothing else. No explanation, no punctuation, just the label.
