@@ -24,6 +24,7 @@ class ModelConfig:
     supports_system_role: bool = True
     supports_developer_role: bool = False
     default_reasoning_effort: Optional[str] = None
+    min_reasoning_effort: Optional[str] = None  # Lowest allowed reasoning_effort value
     retirement_date_standard: Optional[str] = None
     retirement_date_provisioned: Optional[str] = None
     replacement_model: Optional[str] = None
@@ -118,10 +119,12 @@ MODEL_REGISTRY: dict[str, ModelConfig] = {
         supports_developer_role=True,
         max_tokens_param="max_completion_tokens",
         default_reasoning_effort="none",
+        min_reasoning_effort="none",
         api_style="v1",
         notes=[
             "reasoning_effort defaults to 'none' - set explicitly if you want reasoning",
             "Supports 'none' as reasoning_effort for fast non-reasoning responses",
+            "Supported levels: none, low, medium, high",
             "Does NOT support temperature, top_p, presence_penalty, frequency_penalty",
         ],
     ),
@@ -135,9 +138,10 @@ MODEL_REGISTRY: dict[str, ModelConfig] = {
         supports_developer_role=True,
         max_tokens_param="max_completion_tokens",
         default_reasoning_effort="medium",
+        min_reasoning_effort="minimal",
         api_style="v1",
         notes=[
-            "4 thinking levels: minimal, low, medium, high",
+            "Supported levels: minimal, low, medium, high (NOT 'none')",
             "Parallel tool calls NOT supported at minimal reasoning_effort",
             "272K tokens in, 128K tokens out (400K total)",
         ],
@@ -151,7 +155,27 @@ MODEL_REGISTRY: dict[str, ModelConfig] = {
         supports_developer_role=True,
         max_tokens_param="max_completion_tokens",
         default_reasoning_effort="medium",
+        min_reasoning_effort="minimal",
         api_style="v1",
+        notes=[
+            "Supported levels: minimal, low, medium, high (NOT 'none')",
+        ],
+    ),
+    "gpt-5-nano": ModelConfig(
+        name="gpt-5-nano",
+        model_type="reasoning",
+        supports_temperature=False,
+        supports_top_p=False,
+        supports_reasoning_effort=True,
+        supports_developer_role=True,
+        max_tokens_param="max_completion_tokens",
+        default_reasoning_effort="medium",
+        min_reasoning_effort="minimal",
+        api_style="v1",
+        notes=[
+            "Supported levels: minimal, low, medium, high (NOT 'none')",
+            "Smallest and cheapest GPT-5 family model",
+        ],
     ),
 }
 

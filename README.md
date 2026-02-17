@@ -95,8 +95,18 @@ client = OpenAI(
 | `max_tokens` | Supported | Use `max_completion_tokens` | Use `max_completion_tokens` |
 | `temperature` | Supported | Supported | **Not supported** |
 | `top_p` | Supported | Supported | **Not supported** |
-| `reasoning_effort` | N/A | N/A | `"none"` / `"low"` / `"medium"` / `"high"` |
+| `reasoning_effort` | N/A | N/A | See table below |
 | System role | `system` | `system` | `developer` |
+
+### Reasoning Effort by Model
+
+> **Important:** `reasoning_effort="none"` is only supported from GPT-5.1 onwards. GPT-5, GPT-5-mini, and GPT-5-nano do **not** support `"none"` — their minimum is `"minimal"`, which still incurs reasoning tokens and added latency. This is a key consideration when migrating from a non-reasoning model like GPT-4o.
+
+| Model | Type | `reasoning_effort` levels | Default |
+|-------|------|--------------------------|---------|
+| GPT-4.1 / 4.1-mini / 4.1-nano | Standard | N/A (no reasoning) | — |
+| GPT-5 / 5-mini / 5-nano | Reasoning | `minimal`, `low`, `medium`, `high` | `medium` |
+| GPT-5.1 | Reasoning | `none`, `low`, `medium`, `high` | `none` |
 
 ## Evaluation
 
